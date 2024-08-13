@@ -6,12 +6,17 @@
 POSTGRES_USER="youruser"
 POSTGRES_PASSWORD="yourpassword"
 POSTGRES_DB="yourdatabasename"
+POSTGRES_VERSION="16"
+
 
 # Function to install PostgreSQL
 install_postgres() {
     echo "Installing PostgreSQL..."
+    sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)-pgdg main" > /etc/apt/sources.list.d/pgdg.list'
+    curl -fsSL https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo gpg --dearmor -o /etc/apt/trusted.gpg.d/postgresql.gpg
+
     sudo apt update -y
-    sudo apt install -y postgresql postgresql-contrib
+    sudo apt install -y "postgresql-$POSTGRES_VERSION" "postgresql-contrib-$POSTGRES_VERSION"
 
     # Start PostgreSQL service
     sudo systemctl start postgresql
