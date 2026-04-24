@@ -18,15 +18,13 @@ backup_postgres() {
   mkdir -p "$BACKUP_DIR"
 
   # Run pg_dump and compress with gzip
-  PGPASSWORD="$POSTGRES_PASSWORD" pg_dump \
+  if PGPASSWORD="$POSTGRES_PASSWORD" pg_dump \
     -h "$POSTGRES_HOST" \
     -p "$POSTGRES_PORT" \
     -U "$POSTGRES_USER" \
     -d "$POSTGRES_DB" \
     -F c \
-    -f "$BACKUP_DIR/${POSTGRES_DB}_${TIMESTAMP}.dump"
-
-  if [ $? -eq 0 ]; then
+    -f "$BACKUP_DIR/${POSTGRES_DB}_${TIMESTAMP}.dump"; then
     echo "Backup saved to: $BACKUP_DIR/${POSTGRES_DB}_${TIMESTAMP}.dump"
   else
     echo "Backup failed."

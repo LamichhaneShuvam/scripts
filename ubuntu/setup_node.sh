@@ -13,6 +13,7 @@ install_node() {
   curl -o- "https://raw.githubusercontent.com/nvm-sh/nvm/$NVM_VERSION/install.sh" | bash
 
   # Load nvm in current shell (in lieu of restarting)
+  # shellcheck source=/dev/null
   \. "$HOME/.nvm/nvm.sh"
 
   # Download and install Node.js
