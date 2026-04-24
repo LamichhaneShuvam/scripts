@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Works as of Sat 22 Jun 22:49 [GMT+5:45]
+# Works as of Fri 24 Apr 2026 11:31 [GMT+5:45]
 
 # Function to install Docker
 install_docker() {
@@ -34,7 +34,7 @@ install_docker() {
   sudo systemctl enable docker
 
   # Add current user to docker group to run Docker commands without sudo
-  sudo usermod -aG docker $USER
+  sudo usermod -aG docker "$USER"
 
   echo "Docker installed. You may need to log out and back in for Docker to work without sudo."
 }
