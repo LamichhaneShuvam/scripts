@@ -1,2 +1,51 @@
-# OS File
+# OS Files
 .DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Editor / IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.settings/
+.classpath
+*.sublime-project
+*.sublime-workspace
+
+# Formatter / Linter
+.prettier*
+.eslintcache
+.stylelintcache
+
+# Environment
+.env
+.env.*
+!.env.example
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Dependencies
+node_modules/
+vendor/
+__pycache__/
+*.pyc
+
+# Build output
+dist/
+build/
+out/
+*.o
+*.so
+
+# Archives
+*.zip
+*.tar.gz
+*.rar
